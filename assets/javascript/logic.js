@@ -24,6 +24,11 @@ $(document).ready(function(){
     fullWidth: true
   });
 
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+  $(".dropdown-trigger").dropdown();
+
 
 
 //#endregion
