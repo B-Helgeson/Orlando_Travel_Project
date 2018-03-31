@@ -13,22 +13,36 @@ $(document).ready(function(){
     };
   firebase.initializeApp(config);
  
+  // Define database variables
+  var db = firebase.database();
+  // Database reference for guests
+  var guestsRef = db.ref("/guests");
+ 
+  // Javascript for HTML Parallax function
+    $('.parallax').parallax();
+    $(document).ready(function(){
+      $('.carousel').carousel();
+    });
 
-  //Javascript for Parallax function
-  $('.parallax').parallax();
-  $(document).ready(function(){
-    $('.carousel').carousel();
-  });
+  // Javascript for HTML Carousel function
+    $('.carousel.carousel-slider').carousel({
+      fullWidth: true
+    });
 
-  $('.carousel.carousel-slider').carousel({
-    fullWidth: true
-  });
-
+  // Javascript for HTML Form Function
   $(document).ready(function(){
     $('select').formSelect();
   });
   $(".dropdown-trigger").dropdown();
 
+  // Global Variables
+    //object for guest input
+    guest = { 
+      name: "",
+      adults: 0,
+      children: 0,
+      infants: 0
+      }
 
 
 //#endregion
@@ -44,6 +58,7 @@ var weather = "https://api.apixu.com/v1/current.json?key=cf2b992aa9b84d70b671326
 
 //AJAX call
 $.ajax({
+  async: false, // Should prevent error in console
   url: weather,
   method: "GET"
 }).then(function(response) {
@@ -80,6 +95,28 @@ $.ajax({
 
 
 //region push user inputs  to database
+$("#submit").on("click", function(event) {
+
+  // Get the input values
+  guest.name = $("#nameInput").val().trim();
+
+    // If-Else statements to accomodate if the user doesn't make a selection (nulls)
+    if (($("#adultsInput").val() == null) || ($("#adultsInput").val() == 0)) { guest.adults = "0"} 
+    else guest.adults =  $("#adultsInput").val().trim();
+    if (($("#childrenInput").val() == null) || ($("#childrenInput").val() == 0)) { guest.children = "0"} 
+    else guest.children =  $("#childrenInput").val().trim();
+    if (($("#infantsInput").val() == null) || ($("#infantsInput").val() == 0)) { guest.infants = "0"} 
+    else guest.infants =  $("#infantsInput").val().trim();
+
+  // Console log the input values as the Guest Object
+  console.log(guest)
+
+  // Push the "guest" object to firebase
+  guestsRef.push({
+    guest: guest
+    });  
+
+});
 
 
 
