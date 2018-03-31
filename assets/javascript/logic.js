@@ -94,7 +94,7 @@ $.ajax({
 //------------------------------------------
 //#endregion
 
-//region push user inputs  to database
+//#region push user inputs  to database
 $("#submit").on("click", function(event) {
 
   // Get the input values
@@ -124,7 +124,7 @@ $("#submit").on("click", function(event) {
 //#endregion
 
 
-//region create the results page
+//#region create the results page
 
 
 //Pull Valid List of Attractions
