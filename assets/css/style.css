@@ -38,6 +38,8 @@
 nav {
   position: fixed;
   z-index: 500;
+  background-color: lightskyblue;
+  color: black;
 }
 
 h3 {
@@ -72,4 +74,32 @@ h3 {
        -o-transform: rotate(-10deg);
       -ms-transform: rotate(-10deg);
           transform: rotate(-10deg);
+}
+
+.btn {
+  background-color: darkorchid;
+  color: aliceblue;
+  margin-left: 17%;
+  height: 50px;
+  width: 150px;
+  border-radius: 5px;
+  font-size: 25px;
+}
+
+.btn:hover {
+  background-color: aliceblue;
+  color: darkorchid;
+
+}
+
+::placeholder {
+  color: black;
+  background-color: white;
+  text-align: center;
+  font-size: 20px;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 16px;
 }
