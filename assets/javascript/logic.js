@@ -1,8 +1,9 @@
 //Inial function to load on document ready
 $(document).ready(function(){
 
-  //#region initialize firebase, global config, and global variables
-//Initialize Firebase For Users Collection
+//#region initialize firebase, global config, and global variables
+
+  //Initialize Firebase For Users Data Collection
   var config = {
         apiKey: "AIzaSyCRmQIgP5QRngV4cj6Z0bDnabYv-5_1vF8",
         authDomain: "orlandotravelproject.firebaseapp.com",
@@ -93,7 +94,6 @@ $.ajax({
 //------------------------------------------
 //#endregion
 
-
 //region push user inputs  to database
 $("#submit").on("click", function(event) {
 
@@ -123,11 +123,15 @@ $("#submit").on("click", function(event) {
 //------------------------------
 //#endregion
 
+
 //region create the results page
+
 
 //Pull Valid List of Attractions
 
+
 //Rate Attractions with Attributes per Age Group
+
 
 //Generate Results based on input values
 
@@ -135,8 +139,6 @@ $("#submit").on("click", function(event) {
 
 //------------------------------
 //#endregion
-
-
 
 //--------------------------------------
 }); //End Tag for All Javascript
