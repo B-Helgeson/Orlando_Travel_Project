@@ -1,5 +1,7 @@
 //Inial function to load on document ready
 $(document).ready(function(){
+
+  //#region initialize firebase, global config, and global variables
 //Initialize Firebase For Users Collection
   var config = {
         apiKey: "AIzaSyCRmQIgP5QRngV4cj6Z0bDnabYv-5_1vF8",
@@ -12,25 +14,7 @@ $(document).ready(function(){
   firebase.initializeApp(config);
  
 
-  //Initialize APIs Here
-  //------------------------------------------
-
-
-  //Google Maps with Traffic Layer API 
-  //------------------------------------------
-  function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 13,
-      center: {lat: 28.3834207, lng: -81.6121108} //Need to change to match Orlando coordinates
-    });
-    var trafficLayer = new google.maps.TrafficLayer();
-    trafficLayer.setMap(map);
-  }
-
-
-
-  //Begin Javascript Here
-  //------------------------------
+  //Javascript for Parallax function
   $('.parallax').parallax();
   $(document).ready(function(){
     $('.carousel').carousel();
@@ -39,6 +23,45 @@ $(document).ready(function(){
   $('.carousel.carousel-slider').carousel({
     fullWidth: true
   });
+
+
+
+//#endregion
+
+//#region Initializing API scripts
+
+//Google Maps with Traffic Layer API is in the HTML Doc
+
+//Weather API Config Here
+
+//Wikipedia API Config Here
+
+//Youtube API Config Here
+
+
+//------------------------------------------
+//#endregion
+
+
+//region push user inputs  to database
+
+
+
+//------------------------------
+//#endregion
+
+//region create the results page
+
+//Pull Valid List of Attractions
+
+//Rate Attractions with Attributes per Age Group
+
+//Generate Results based on input values
+
+
+
+//------------------------------
+//#endregion
 
 
 
