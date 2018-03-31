@@ -32,7 +32,7 @@ $(document).ready(function(){
   //Begin Javascript Here
   //------------------------------
   $('.parallax').parallax();
-
+  $(".dropdown-trigger").dropdown();
 
 
 
