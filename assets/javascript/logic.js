@@ -31,6 +31,7 @@ $(document).ready(function(){
 
   //Begin Javascript Here
   //------------------------------
+  $('.parallax').parallax();
 
 
 

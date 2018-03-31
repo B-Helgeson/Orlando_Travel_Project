@@ -11,3 +11,17 @@
         padding: 0;
       }
       /* -------------------------------------------------------------------- */
+      h1 {
+        color: rgb(36, 159, 235);
+        font-family: 'Times New Roman', Times, serif;
+        font: bolder;
+        font-size: 50px;
+        padding-right: 30%;
+    }
+    p {
+        color: red;
+    }
+    
+    .parallax-container {
+        padding-right: 30%;
+    }
