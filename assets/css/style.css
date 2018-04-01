@@ -1,15 +1,16 @@
-      /* Style Settings for Google Maps API */
-      /* ---------------------------------------------------------------------- */
-            /* Always set the map height explicitly to define the size of the div
+/* Style Settings for Google Maps API */
+      /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
        #map {
         height: 200px;
         width: 100%;
       }
-      /* Always set the map height explicitly to define the size of the div element that contains the map. */
+
+/* Style Settings for Weather API */
        #weather {
         height: 100%;
       }
+
       /* -------------------------------------------------------------------- */
       h1 {
         color: rgb(36, 159, 235);
@@ -102,4 +103,13 @@ h3 {
 .footer-copyright {
   text-align: center;
   font-size: 16px;
+}
+
+#loadResults {
+  height:20px; 
+  width:100px; 
+  margin: -20px -50px; 
+  position:relative;
+  top:50%; 
+  left:50%;
 }

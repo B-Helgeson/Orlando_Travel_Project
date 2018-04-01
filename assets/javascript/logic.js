@@ -18,7 +18,7 @@ $(document).ready(function(){
   var db = firebase.database();
   // Database reference for guests
   var guestsRef = db.ref("/guests");
-  var ridesRef = db.ref("/attractions")
+  var ridesRef = db.ref("/attractions/attractions")
  
   // Javascript for HTML Parallax function
     $('.parallax').parallax();
@@ -97,7 +97,7 @@ $.ajax({
 
 //#region push user inputs  to database
 $("#submit").on("click", function(event) {
-
+  event.preventDefault();
   // Get the input values
   guest.name = $("#nameInput").val().trim();
 
@@ -128,14 +128,80 @@ $("#submit").on("click", function(event) {
 //#region create the results page
 
 
-//Pull Valid List of Attractions
+
+
+
+//Pull Valid List of Attractions from firebase database
+
+
+
 
 
 //Rate Attractions with Attributes per Age Group
 
 
-//Generate Results based on input values
 
+
+//Test Rides List to prove out function below, in the future we will pull from the firebase attractions list
+var attractions = [
+    {
+      "attractionName": "Dumbo",
+      "adultRank": 1,
+      "childRank": 1,
+      "infantRank": 1,
+      "heightRequirement": "38 inches"
+    },
+    {
+      "attractionName": "Seven Dwarves Mine Train",
+      "adultRank": 2,
+      "childRank": 2,
+      "infantRank": 2,
+      "heightRequirement": ""
+    },
+    {
+      "attractionName": "Mad Hatter’s Tea Cups",
+      "adultRank": 3,
+      "childRank": 3,
+      "infantRank": 3,
+      "heightRequirement": ""
+    },
+    {
+      "attractionName": "The Many Adventures of Winnie the Pooh",
+      "adultRank": 4,
+      "childRank": 4,
+      "infantRank": 4,
+      "heightRequirement": ""
+    },
+    {
+      "attractionName": "Barnstormer featuring the Great Goofini",
+      "adultRank": 5,
+      "childRank": 5,
+      "infantRank": 5,
+      "heightRequirement": "35 inches"
+    }
+  ]
+
+// var rides = ridesRef.orderByKey().limitToFirst(3)
+
+//Generate Results Table based on input values
+  $("#loadResults").on("click", function(event) {
+    event.preventDefault();
+    // To do: Change this function to be triggered by the "Submit" on page one
+
+    // for each to generate the table of results based on attributes
+    for (var i = 0; i < attractions.length; i++) {
+    $("#results-table > tbody").append(
+      "<tr><td>" + [i].attractionName + 
+      "</td><td>" + [i].adultRank + 
+      "</td><td>" + [i].childRank + 
+      "</td><td>" + [i].infantRank + 
+      "</td><td>" + [i].heightRequirements + 
+      "</td></tr>");
+    }
+  
+    //To Do, update table values to reflect "custom rank", "description (wikipedia)", "video (youtube)"
+
+  })
 
 
 //------------------------------
