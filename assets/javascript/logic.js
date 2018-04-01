@@ -18,6 +18,7 @@ $(document).ready(function(){
   var db = firebase.database();
   // Database reference for guests
   var guestsRef = db.ref("/guests");
+  var ridesRef = db.ref("/attractions")
  
   // Javascript for HTML Parallax function
     $('.parallax').parallax();
