@@ -88,8 +88,10 @@ $.ajax({
 
 
 //Wikipedia API Config Here
+  //To Do: Connect to wikipedia API, or just save a paragraph of text for each ride in the attractions JSON list
 
 //Youtube API Config Here
+  // To Do: Connect to the Youtube API, or just imbed a youtube URL for each ride in the attractions JSON list.
 
 
 //------------------------------------------
@@ -128,65 +130,76 @@ $("#submit").on("click", function(event) {
 //#region create the results page
 
 
-
-
-
 //Pull Valid List of Attractions from firebase database
 
+    //Test Rides List to prove out the overal functionality below 
+    //To Do: properly connect to firebase attraction JSON list
+    //This may require re-formatting the data structure
 
-
-
-
-//Rate Attractions with Attributes per Age Group
-
-
-
-
-//Test Rides List to prove out function below, in the future we will pull from the firebase attractions list
 var attractions = [
-    {
-      "attractionName": "Dumbo",
-      "adultRank": 1,
-      "childRank": 1,
-      "infantRank": 1,
-      "heightRequirement": "38 inches"
-    },
-    {
-      "attractionName": "Seven Dwarves Mine Train",
-      "adultRank": 2,
-      "childRank": 2,
-      "infantRank": 2,
-      "heightRequirement": ""
-    },
-    {
-      "attractionName": "Mad Hatter’s Tea Cups",
-      "adultRank": 3,
-      "childRank": 3,
-      "infantRank": 3,
-      "heightRequirement": ""
-    },
-    {
-      "attractionName": "The Many Adventures of Winnie the Pooh",
-      "adultRank": 4,
-      "childRank": 4,
-      "infantRank": 4,
-      "heightRequirement": ""
-    },
-    {
-      "attractionName": "Barnstormer featuring the Great Goofini",
-      "adultRank": 5,
-      "childRank": 5,
-      "infantRank": 5,
-      "heightRequirement": "35 inches"
-    }
-  ]
+  {
+    "attractionName": "Dumbo",
+    "adultRank": 1,
+    "childRank": 1,
+    "infantRank": 1,
+    "heightRequirement": "38 inches"
+  },
+  {
+    "attractionName": "Seven Dwarves Mine Train",
+    "adultRank": 2,
+    "childRank": 2,
+    "infantRank": 2,
+    "heightRequirement": ""
+  },
+  {
+    "attractionName": "Mad Hatter’s Tea Cups",
+    "adultRank": 3,
+    "childRank": 3,
+    "infantRank": 3,
+    "heightRequirement": ""
+  },
+  {
+    "attractionName": "The Many Adventures of Winnie the Pooh",
+    "adultRank": 4,
+    "childRank": 4,
+    "infantRank": 4,
+    "heightRequirement": ""
+  },
+  {
+    "attractionName": "Barnstormer featuring the Great Goofini",
+    "adultRank": 5,
+    "childRank": 5,
+    "infantRank": 5,
+    "heightRequirement": "35 inches"
+  }
+]
 
-// var rides = ridesRef.orderByKey().limitToFirst(3)
 
-//Generate Results Table based on input values
+// Calculate the custom ranked list of attractions based on the Guest Input
+
+/* This section should do the following:
+
+  - Determine the # of guests that fall into each demographic age group
+
+  - Determine a list of rides to return based on the ranking by age, this can be done by either:
+
+      - Use math to determine an "average age" for the party, and use that new age value to return results
+
+      - Use a pre-defined set of rules to always return a certain number of results per # of users in an age group:
+              - If one infant, return one infant ride, if two infants return two infant rides, 3 adults = 3 adult rides, etc.
+              - Use an "overall rank" to limit the number of results or just let the number of results change depending on the number of people
+
+*/
+
+
+
+//Generate Results Table based on input the custom values as calculated above 
   $("#loadResults").on("click", function(event) {
     event.preventDefault();
-    // To do: Change this function to be triggered by the "Submit" on page one
+    // To do: Change this function to be triggered by the "Submit" in nav bar
+
+    //Removes existing table results before re-populating the table
+    $("#results-table > tbody").empty(); 
 
     // for each to generate the table of results based on attributes
     for (var i = 0; i < attractions.length; i++) {
