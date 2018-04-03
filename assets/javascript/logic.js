@@ -18,7 +18,7 @@ $(document).ready(function(){
   var db = firebase.database();
   // Database reference for guests
   var guestsRef = db.ref("/guests");
-  var ridesRef = db.ref("/attractions/attractions")
+  var ridesRef = db.ref("/attractions")
  
   // Javascript for HTML Parallax function
     $('.parallax').parallax();
@@ -132,47 +132,22 @@ $("#submit").on("click", function(event) {
 
 //Pull Valid List of Attractions from firebase database
 
-    //Test Rides List to prove out the overal functionality below 
-    //To Do: properly connect to firebase attraction JSON list
-    //This may require re-formatting the data structure
 
-var attractions = [
-  {
-    "attractionName": "Dumbo",
-    "adultRank": 1,
-    "childRank": 1,
-    "infantRank": 1,
-    "heightRequirement": "38 inches"
-  },
-  {
-    "attractionName": "Seven Dwarves Mine Train",
-    "adultRank": 2,
-    "childRank": 2,
-    "infantRank": 2,
-    "heightRequirement": ""
-  },
-  {
-    "attractionName": "Mad Hatter’s Tea Cups",
-    "adultRank": 3,
-    "childRank": 3,
-    "infantRank": 3,
-    "heightRequirement": ""
-  },
-  {
-    "attractionName": "The Many Adventures of Winnie the Pooh",
-    "adultRank": 4,
-    "childRank": 4,
-    "infantRank": 4,
-    "heightRequirement": ""
-  },
-  {
-    "attractionName": "Barnstormer featuring the Great Goofini",
-    "adultRank": 5,
-    "childRank": 5,
-    "infantRank": 5,
-    "heightRequirement": "35 inches"
-  }
-]
+rideList = [] // Client-Side JavaScript Variable to contain the FireBase Attraction List
+
+// Function to Push FireBase Attractions to the js variable
+ridesRef.on("child_added", function(snap){
+  rideList.push(snap.val())
+  console.log(snap.val().attractionName)
+});
+
+//console-logging the variable and values
+console.log("rideList Below:")
+console.log(rideList)
+
+
+
+
 
 
 // Calculate the custom ranked list of attractions based on the Guest Input
@@ -202,13 +177,13 @@ var attractions = [
     $("#results-table > tbody").empty(); 
 
     // for each to generate the table of results based on attributes
-    for (var i = 0; i < attractions.length; i++) {
+    for (var i = [0]; i < rideList.length; i++) {
     $("#results-table > tbody").append(
-      "<tr><td>" + [i].attractionName + 
-      "</td><td>" + [i].adultRank + 
-      "</td><td>" + [i].childRank + 
-      "</td><td>" + [i].infantRank + 
-      "</td><td>" + [i].heightRequirements + 
+      "<tr><td>" + (parseInt([i]) + 1 ) + 
+      "</td><td>" + rideList[i].attractionName + 
+      "</td><td>" + rideList[i].childRank + 
+      "</td><td>" + rideList[i].infantRank + 
+      "</td><td>" + rideList[i].heightRequirement + 
       "</td></tr>");
     }
   
