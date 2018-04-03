@@ -179,11 +179,11 @@ console.log(rideList)
     // for each to generate the table of results based on attributes
     for (var i = [0]; i < rideList.length; i++) {
     $("#results-table > tbody").append(
-      "<tr><td>" + (parseInt([i]) + 1 ) + 
-      "</td><td>" + rideList[i].attractionName + 
-      "</td><td>" + rideList[i].childRank + 
-      "</td><td>" + rideList[i].infantRank + 
-      "</td><td>" + rideList[i].heightRequirement + 
+      "<tr><td>" + (parseInt([i]) + 1 ) +             // table column 1 = "customized Rank"
+      "</td><td>" + rideList[i].attractionName +      // table column 2 = "Attraction Name"
+      "</td><td>" + rideList[i].heightRequirement +   // table column 3 = "Height Requirement"
+      "</td><td>" + rideList[i].adultRank +           // table column 4 = "Description" (wikipedia)
+      "</td><td>" + rideList[i].childRank +           // table column 5 = "Ride Vide" (YouTube)
       "</td></tr>");
     }
   
