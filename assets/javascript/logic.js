@@ -19,6 +19,10 @@ $(document).ready(function(){
   // Database reference for guests
   var guestsRef = db.ref("/guests");
   var ridesRef = db.ref("/attractions")
+  var adultsRef = db.ref("/attractions/adultsList")
+  var kidsRef = db.ref("/attractions/kidsList")
+  var babiesRef = db.ref("/attractions/babiesList")
+  var bothRef = db.ref("/attractions/kidsAndBabiesList")
  
   // Javascript for HTML Parallax function
     $('.parallax').parallax();
@@ -134,37 +138,79 @@ $("#submit").on("click", function(event) {
 
 
 rideList = [] // Client-Side JavaScript Variable to contain the FireBase Attraction List
+// rideList is blank upon page load so that it only gets pushed with the values we want based on the database selected
 
-// Function to Push FireBase Attractions to the js variable
-ridesRef.on("child_added", function(snap){
+
+function adultsOnly () {
+  // Function to Push Adult Ride List to the rideList var
+  adultsRef.on("child_added", function(snap){
   rideList.push(snap.val())
   console.log(snap.val().attractionName)
 });
+}
 
-//console-logging the variable and values
-console.log("rideList Below:")
+function withKids () {
+  // Function to Push Adult + Kids Ride List to the rideList var
+  kidsRef.on("child_added", function(snap){
+  rideList.push(snap.val())
+  console.log(snap.val().attractionName)
+});
+}
+
+function withBabies () {
+  // Function to Push Adult + Babies List to the rideList var
+  babiesRef.on("child_added", function(snap){
+  rideList.push(snap.val())
+  console.log(snap.val().attractionName)
+});
+}
+
+function withKidsAndBabies () {
+  // Function to Push Adult + Babies List to the rideList var
+  bothRef.on("child_added", function(snap){
+  rideList.push(snap.val())
+  console.log(snap.val().attractionName)
+});
+}
+
+
+//console-logging the updated variable and values
 console.log(rideList)
 
 
-
+//execute function that changes the ride list to "adults only" for the list function below
+//adultsOnly();
 
 
 
 // Calculate the custom ranked list of attractions based on the Guest Input
-
 /* This section should do the following:
-
-  - Determine the # of guests that fall into each demographic age group
-
-  - Determine a list of rides to return based on the ranking by age, this can be done by either:
-
-      - Use math to determine an "average age" for the party, and use that new age value to return results
-
-      - Use a pre-defined set of rules to always return a certain number of results per # of users in an age group:
-              - If one infant, return one infant ride, if two infants return two infant rides, 3 adults = 3 adult rides, etc.
-              - Use an "overall rank" to limit the number of results or just let the number of results change depending on the number of people
-
+  - Determine the # of guests that fall into each demographic age group (if statements)
 */
+
+
+
+//Logic to switch the attraction list based on demographics
+$("#submit").on("click", function(event) {
+  event.preventDefault();
+
+  if (guest.children > 0 && guest.infants > 0 ) {
+    withKidsAndBabies();
+    console.log("Kids and Babies")
+  } 
+  else if (guest.children == 0 && guest.infants > 0) {
+    withBabies();
+    console.log("Babies only")
+  }
+  else if (guest.children > 0 && guest.infants == 0 ) {
+    withKids();
+    console.log("Kids only")
+  }
+  else {
+    adultsOnly();
+    console.log("Adults only")
+  }
+})
 
 
 
@@ -188,7 +234,6 @@ console.log(rideList)
     }
   
     //To Do, update table values to reflect "custom rank", "description (wikipedia)", "video (youtube)"
-
   })
 
 
