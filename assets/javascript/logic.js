@@ -99,7 +99,6 @@ $("#submit").on("click", function(event) {
   // Show/Hide the container which holdes the results table
   $('#resultsContainer').toggle();
   // Load the table containing the custom ride list
-  loadResultsTable();
 });
 //#endregion
 
@@ -123,10 +122,12 @@ function pushGuestData() {
 
 // Determine which ride list to present to the guest, based on the user inputs 
 function determineRideList() {
+    rideList = []
     if (guest.children > 0 && guest.infants > 0 ) { //If both children and infants present
       bothRef.on("child_added", function(snap){
         rideList.push(snap.val())
         console.log(snap.val().attractionName)
+        loadResultsTable();
       });
       console.log("Adults and Kids and Babies")
     } 
@@ -134,6 +135,7 @@ function determineRideList() {
       babiesRef.on("child_added", function(snap){
         rideList.push(snap.val())
         console.log(snap.val().attractionName)
+        loadResultsTable();
       });
       console.log("Adults and Babies only")
     }
@@ -141,6 +143,7 @@ function determineRideList() {
       kidsRef.on("child_added", function(snap){
         rideList.push(snap.val())
         console.log(snap.val().attractionName)
+        loadResultsTable();
       });
       console.log("Adults and Kids only")
     }
@@ -148,16 +151,18 @@ function determineRideList() {
       adultsRef.on("child_added", function(snap){ // If only adults present
         rideList.push(snap.val())
         console.log(snap.val().attractionName)
+        loadResultsTable();
       });
       console.log("Adults only")
     }
   }
 
 function loadResultsTable() {
+  console.log("Load Results Function")
     // Empty any results that would have previously existed in the table
     $("#results-table > tbody").empty(); 
     // for loop to generate the table of results based on values in the database object
-    for (var i = [0]; i < rideList.length; i++) {
+    for (var i = 0; i < rideList.length; i++) {
     $("#results-table > tbody").append(
       "<tr><td>" + (parseInt([i]) + 1 ) +             // table column 1 = "customized Rank"
       "</td><td>" + rideList[i].attractionName +      // table column 2 = "Attraction Name"
@@ -166,15 +171,8 @@ function loadResultsTable() {
       "</td><td>" + rideList[i].childRank +           // table column 5 = "Ride Vide" (YouTube)
       "</td></tr>");
     }
-    // Waits 1 second before proceeding
-    waitSecond();
   }
 
-  //function to wait one second
-  function waitSecond() {
-    setTimeout(1000)
-  } 
 //#endregion
-
 
 }); //End Tag for All Javascript
