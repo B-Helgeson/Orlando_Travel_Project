@@ -1,5 +1,8 @@
+$('#resultsContainer').hide(); //Hides the results container before the page loads
+
 //Inial function to load on document ready
 $(document).ready(function(){
+
 
 //#region initialize firebase, global config, and global variables
 
@@ -23,6 +26,9 @@ $(document).ready(function(){
   var kidsRef = db.ref("/attractions/kidsList")
   var babiesRef = db.ref("/attractions/babiesList")
   var bothRef = db.ref("/attractions/kidsAndBabiesList")
+
+  rideList = [] // Client-Side JavaScript Variable to contain the FireBase Attraction List
+// rideList is blank upon page load so that it only gets pushed with the values we want based on the selections below
  
   // Javascript for HTML Parallax function
     $('.parallax').parallax();
@@ -91,20 +97,15 @@ $.ajax({
 });
 
 
-//Wikipedia API Config Here
-  //To Do: Connect to wikipedia API, or just save a paragraph of text for each ride in the attractions JSON list
-
-//Youtube API Config Here
-  // To Do: Connect to the Youtube API, or just imbed a youtube URL for each ride in the attractions JSON list.
-
-
 //------------------------------------------
 //#endregion
 
-//#region push user inputs  to database
+//#region Submit Button Functions
+
 $("#submit").on("click", function(event) {
   event.preventDefault();
   // Get the input values
+
   guest.name = $("#nameInput").val().trim();
 
     // If-Else statements to accomodate if the user doesn't make a selection (nulls)
@@ -118,28 +119,59 @@ $("#submit").on("click", function(event) {
   // Console log the input values as the Guest Object
   console.log(guest)
 
-  // Push the "guest" object to firebase
+  // Push the "guest" object to firebase so that we collect the guest's info
   guestsRef.push({
     guest: guest
     });  
 
+    // Call functions to update the variable with the correct list of rides based on the demographics of the party
+    if (guest.children > 0 && guest.infants > 0 ) {
+      withKidsAndBabies(); // for adults with kids and infants
+      console.log("Kids and Babies")
+    } 
+    else if (guest.children == 0 && guest.infants > 0) {
+      withBabies(); // for adults with infants only 
+      console.log("Babies only")
+    }
+    else if (guest.children > 0 && guest.infants == 0 ) {
+      withKids(); // for adults with kids only
+      console.log("Kids only")
+    }
+    else {
+      adultsOnly(); // for parties of adults only
+      console.log("Adults only")
+    }
+
+    // Empty any results that would have previously existed
+    $("#results-table > tbody").empty(); 
+
+    // for each to generate the table of results based on attributes in the databse object
+    for (var i = [0]; i < rideList.length; i++) {
+    $("#results-table > tbody").append(
+      "<tr><td>" + (parseInt([i]) + 1 ) +             // table column 1 = "customized Rank"
+      "</td><td>" + rideList[i].attractionName +      // table column 2 = "Attraction Name"
+      "</td><td>" + rideList[i].heightRequirement +   // table column 3 = "Height Requirement"
+      "</td><td>" + rideList[i].adultRank +           // table column 4 = "Description" (wikipedia)
+      "</td><td>" + rideList[i].childRank +           // table column 5 = "Ride Vide" (YouTube)
+      "</td></tr>");
+    }
+
+    // Waits 1 second before proceeding
+    waitSecond();
+
+    // Show/Hide the container which holdes the results table
+    $('#resultsContainer').toggle();
 });
 
-
+function waitSecond() {
+  setTimeout(1000)
+} 
 
 //------------------------------
 //#endregion
 
 
-//#region create the results page
-
-
-//Pull Valid List of Attractions from firebase database
-
-
-rideList = [] // Client-Side JavaScript Variable to contain the FireBase Attraction List
-// rideList is blank upon page load so that it only gets pushed with the values we want based on the database selected
-
+//#region functions to update local ridelist with appropriate list from FireBase
 
 function adultsOnly () {
   // Function to Push Adult Ride List to the rideList var
@@ -173,72 +205,8 @@ function withKidsAndBabies () {
 });
 }
 
-
-//console-logging the updated variable and values
-console.log(rideList)
-
-
-//execute function that changes the ride list to "adults only" for the list function below
-//adultsOnly();
-
-
-
-// Calculate the custom ranked list of attractions based on the Guest Input
-/* This section should do the following:
-  - Determine the # of guests that fall into each demographic age group (if statements)
-*/
-
-
-
-//Logic to switch the attraction list based on demographics
-$("#submit").on("click", function(event) {
-  event.preventDefault();
-
-  if (guest.children > 0 && guest.infants > 0 ) {
-    withKidsAndBabies();
-    console.log("Kids and Babies")
-  } 
-  else if (guest.children == 0 && guest.infants > 0) {
-    withBabies();
-    console.log("Babies only")
-  }
-  else if (guest.children > 0 && guest.infants == 0 ) {
-    withKids();
-    console.log("Kids only")
-  }
-  else {
-    adultsOnly();
-    console.log("Adults only")
-  }
-})
-
-
-
-//Generate Results Table based on input the custom values as calculated above 
-  $("#loadResults").on("click", function(event) {
-    event.preventDefault();
-    // To do: Change this function to be triggered by the "Submit" in nav bar
-
-    //Removes existing table results before re-populating the table
-    $("#results-table > tbody").empty(); 
-
-    // for each to generate the table of results based on attributes
-    for (var i = [0]; i < rideList.length; i++) {
-    $("#results-table > tbody").append(
-      "<tr><td>" + (parseInt([i]) + 1 ) +             // table column 1 = "customized Rank"
-      "</td><td>" + rideList[i].attractionName +      // table column 2 = "Attraction Name"
-      "</td><td>" + rideList[i].heightRequirement +   // table column 3 = "Height Requirement"
-      "</td><td>" + rideList[i].adultRank +           // table column 4 = "Description" (wikipedia)
-      "</td><td>" + rideList[i].childRank +           // table column 5 = "Ride Vide" (YouTube)
-      "</td></tr>");
-    }
-  
-    //To Do, update table values to reflect "custom rank", "description (wikipedia)", "video (youtube)"
-  })
-
-
-//------------------------------
 //#endregion
+
 
 //--------------------------------------
 }); //End Tag for All Javascript
