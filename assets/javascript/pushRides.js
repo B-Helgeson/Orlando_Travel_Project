@@ -191,3 +191,13 @@ ridesRef.set({
 });  
 
 });
+
+
+//Area for code that will compare rides with results. 
+var adults = guest.adults;
+var rides = attractions.adultRank;
+var kiddies = attractions.childRank;
+for ( i = 0; i < guest.adults; i++){
+  guest.adults += attractions
+};
+

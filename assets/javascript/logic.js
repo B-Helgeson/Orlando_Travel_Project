@@ -76,15 +76,17 @@ $.ajax({
     var condition = response.current.condition.text;
     var conditionImage = response.current.condition.icon;
     //Creating tags for the elements
-    var displayF = $("<p>").text("Temp (in Fahrenheit): " + tempF);
-    var displayC = $("<p>").text("Temp (in Celsius): " + tempC);
-    var displayCondition = $("<p>").text("Condition is " + condition);
+    var displayF = $("<p class = 'weather'>").html("Temp (in Fahrenheit): " + tempF + " &#x2109;");
+    var displayC = $("<p class = 'weather'>").html("Temp (in Celsius): " + tempC + "&#x2103;");
+    var displayCondition = $("<p class = 'weather'>").text("Condition is " + condition);
     var displayIcon = $("<img>").attr("src", "http:" + conditionImage);
     //Putting it in the weather div
+    $("#weather").append(displayIcon); 
+    $("#weather").append(displayCondition);
     $("#weather").append(displayF);
     $("#weather").append(displayC);
-    $("#weather").append(displayCondition);
-    $("#weather").append(displayIcon); 
+    
+   
 });
 //#endregion
 
