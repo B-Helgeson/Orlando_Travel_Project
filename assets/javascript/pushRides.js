@@ -34,40 +34,35 @@ $(document).ready(function(){
 var adultsList = 
 
 {
-  "A Pirates Adventure: Treasure of the Seven Seas interactive game" : {
-    "adultRank" : 31,
-    "attractionName" : "A Pirates Adventure: Treasure of the Seven Seas interactive game",
-    "childRank" : 27,
+  "Space Mountain" : {
+    "description" : "Board a rocket and go on an amazing roller coaster ride through the Milky way. This attraction is mostly in the dark and very loud with sudden stops and drops. This attraction does not go upside down.",
+    "attractionName" : "Space Mountain",
+    "rideVideo" : "https://www.youtube.com/embed/xJEygqUKcvs",
     "heightRequirement" : "none",
-    "infantRank" : 14
   },
-  "Ariel's Grotto" : {
-    "adultRank" : 21,
-    "attractionName" : "Ariel's Grotto",
-    "childRank" : 9,
+  "Space Mountain" : {
+    "description" : "Board a rocket and go on an amazing roller coaster ride through the Milky way. This attraction is mostly in the dark and very loud with sudden stops and drops. This attraction does not go upside down.",
+    "attractionName" : "Space Mountain",
+    "rideVideo" : "https://www.youtube.com/embed/xJEygqUKcvs",
     "heightRequirement" : "none",
-    "infantRank" : 5
   },
-  "Astro Orbiter" : {
-    "adultRank" : 8,
-    "attractionName" : "Astro Orbiter",
-    "childRank" : 24,
+  "Space Mountain" : {
+    "description" : "Board a rocket and go on an amazing roller coaster ride through the Milky way. This attraction is mostly in the dark and very loud with sudden stops and drops. This attraction does not go upside down.",
+    "attractionName" : "Space Mountain",
+    "rideVideo" : "https://www.youtube.com/embed/xJEygqUKcvs",
     "heightRequirement" : "none",
-    "infantRank" : 27
   },
-  "Barnstormer featuring the Great Goofini" : {
-    "adultRank" : 24,
-    "attractionName" : "Barnstormer featuring the Great Goofini",
-    "childRank" : 5,
-    "heightRequirement" : "35 inches",
-    "infantRank" : 29
+  "Space Mountain" : {
+    "description" : "Board a rocket and go on an amazing roller coaster ride through the Milky way. This attraction is mostly in the dark and very loud with sudden stops and drops. This attraction does not go upside down.",
+    "attractionName" : "Space Mountain",
+    "rideVideo" : "https://www.youtube.com/embed/xJEygqUKcvs",
+    "heightRequirement" : "none",
   },
-  "Big Thunder Mountain Railroad" : {
-    "adultRank" : 2,
-    "attractionName" : "Big Thunder Mountain Railroad",
-    "childRank" : 13,
-    "heightRequirement" : "40 inches",
-    "infantRank" : 30
+  "Space Mountain" : {
+    "description" : "Board a rocket and go on an amazing roller coaster ride through the Milky way. This attraction is mostly in the dark and very loud with sudden stops and drops. This attraction does not go upside down.",
+    "attractionName" : "Space Mountain",
+    "rideVideo" : "https://www.youtube.com/embed/xJEygqUKcvs",
+    "heightRequirement" : "none",
   }
 }
 
