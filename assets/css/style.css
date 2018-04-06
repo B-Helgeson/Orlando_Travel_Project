@@ -11,6 +11,14 @@
         text-align: center;
 
       }
+      .weather {
+        color: grey;
+        font-size: 20px;
+        line-height: 40%;
+      }
+      #weatherPara {
+        line-height: 130%;
+      }
 
       /* -------------------------------------------------------------------- */
       h1 {
@@ -37,15 +45,7 @@
       font-size: 20px;
     }
 
-    /* Weather class for the div. Since it needed styling. */
-    .weather {
-      color: grey;
-      font-size: 20px;
-      line-height: 40%;
-    }
-    #weatherPara {
-      line-height: 130%;
-    }
+    
 nav {
   position: fixed;
   z-index: 500;
