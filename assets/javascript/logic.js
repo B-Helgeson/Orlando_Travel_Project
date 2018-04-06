@@ -169,8 +169,8 @@ function loadResultsTable() {
       "<tr><td>" + (parseInt([i]) + 1 ) +             // table column 1 = "customized Rank"
       "</td><td>" + rideList[i].attractionName +      // table column 2 = "Attraction Name"
       "</td><td>" + rideList[i].heightRequirement +   // table column 3 = "Height Requirement"
-      "</td><td>" + rideList[i].adultRank +           // table column 4 = "Description" (wikipedia)
-      "</td><td> <iframe width='560' height='315' src='" + rideList[i].childRank +           // table column 5 = "Ride Vide" (YouTube)
+      "</td><td>" + rideList[i].description +           // table column 4 = "Description" (wikipedia)
+      "</td><td> <iframe width='560' height='315' src='" + rideList[i].rideVideo +           // table column 5 = "Ride Vide" (YouTube)
       "' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe></td></tr>");
     }
   }

@@ -132,3 +132,7 @@ h3 {
   top:50%; 
   left:50%;
 }
+
+#tableDiv {
+  width: 100vw;
+}
