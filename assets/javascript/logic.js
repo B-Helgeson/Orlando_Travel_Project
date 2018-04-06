@@ -30,10 +30,11 @@ $(document).ready(function(){
       $('.carousel').carousel();
     });
 
-  // Javascript for HTML Carousel function
-    $('.carousel.carousel-slider').carousel({
-      fullWidth: true
-    });
+  // Javascript for Scroll Funtion
+  $(document).ready(function(){
+    $('.scrollspy').scrollSpy();
+  });
+
 
   // Javascript for HTML Form Function
   $(document).ready(function(){

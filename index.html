@@ -8,62 +8,20 @@
     <title>Design Your Own Magic</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 </head>
 
 <body>
- <!-- Nav bar -->
- <nav>
-  <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s3">
-          <input placeholder="What's your first name?" id="nameInput" type="text" class="validate">
-        </div>
-        <div class="input-field col s3">
-          <label></label>
-          <select class="browser-default" id="adultsInput">
-            <option value="" disabled selected>Adults Ages 10+</option> 
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-          </div>
-          <div class="input-field col s3">
-            <label></label>
-            <select class="browser-default" id="childrenInput">
-              <option value="" disabled selected>Kids Ages 3-9</option>
-              <option value="">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-            </div>
-            <div class="input-field col s3">
-              <label></label>
-              <select class="browser-default" id="infantsInput">
-                <option value="0" disabled selected>Kids Ages 0-2</option>
-                <option value="">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Submit</button>
-          </div>
-        </form>
-    </div>
-  </nav>
-
-<br>
-<br>
-<br>
+  <div class="topofpage">
+    <div class="row">
+    <div class="col s12 m6 l3"><h4><a href="index.html">DYOM</a></h4></div>
+    <div class="col s12 m6 l3"><h4><a href="#sunny" class>Weather</a></h4></div>
+    <div class="col s12 m6 l3"><h4><a href="#orlando" class>Map</a></h4></div>
+    <div class="col s12 m6 l3"><h4><a href="#lands">Lands</a></h4></div>
+  </div>
+  <br>
+</div>
+ 
 
 
 
@@ -76,10 +34,61 @@
         <div class="section white">
             <div class="row container">
                 <h1 class="header">Design Your Own Magic</h1>
-                <p class="grey-text text-darken-3 lighten-3">Walt Disney's Magic Kingdom Park opened in central Florida on October 1st, 1971. The Magic Kingdom Park is
-                    Walt Disney World's most popular park, earning the title of the most popular theme park in the world.
-                    The park is seperated into 6 lands, all of which offer exciting and immersive attractions. Fill out the
-                    brief survey above to get your own Top 5 Attractions!</p>
+                <p class="grey-text text-darken-3 lighten-3">You are about to embark
+                  on a great adventure with your traveling family!  The Magic Kingdom Park is the most popular theme park in the entire world,
+                  with over 50 attractions to see and do.  To get you started on your day at the Magic Kingdom Park, fill out the form below
+                  to get your Top 5 attractions you do not want to miss!
+                </p>
+                    <nav>
+                      <div class="row">
+                        <form class="col s12">
+                          <div class="row">
+                            <div class="input-field col s2">
+                              <input placeholder="First Name?" id="nameInput" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s2">
+                              <label></label>
+                              <select class="browser-default" id="adultsInput">
+                                <option value="" disabled selected>Adults in Group Ages 10+</option> 
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                              </select>
+                              </div>
+                              <div class="input-field col s2">
+                                <label></label>
+                                <select class="browser-default" id="childrenInput">
+                                  <option value="" disabled selected>Kids in Group Ages 3-9</option>
+                                  <option value="">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                </select>
+                                </div>
+                                <div class="input-field col s2">
+                                  <label></label>
+                                  <select class="browser-default" id="infantsInput">
+                                    <option value="0" disabled selected>Kids in Group Ages 0-2</option>
+                                    <option value="">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                  </select>
+                                </div>
+                                <div class="input-field col s2">
+                                <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Submit</button>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                      </nav>
             </div>
         </div>
         <div class="parallax-container">
@@ -87,6 +96,7 @@
                 <img src="https://blog-cdn.touringplans.com/wp-content/uploads/2014/07/USA_MainStreetUsa_Sperduto.jpg">
             </div>
         </div>
+        <div id="sunny"></div>
         <div class="row container">
             <h1 class="header">Weather</h1>
             <div class="row">
@@ -99,18 +109,10 @@
                 </div>
             </div>
             <br>
-            <p><i>Swipe images left or right to see Florida Project pictures.</i></p>
 
 
-        <!-- Carousel -->
-        <div class="carousel carousel-slider">
-                    <a class="carousel-item" href="#one!"><img src="http://www.tfppodcast.com/wp-content/uploads/2015/02/walt.jpg"></a>
-                    <a class="carousel-item" href="#two!"><img src="https://lh3.googleusercontent.com/yqyz0ythgvM-Whu1RA3HzCoVhdbRzJW-FEAUCCDwiyzef7BuzM3pJCLWq_WMPAzkXMTYRCodkvBk-KcwCI9BxW9zUdbFzr0=s0"></a>
-                    <a class="carousel-item" href="#three!"><img src="http://blog.wdwinfo.com/wp-content/uploads/2013/05/Florida-Project.jpg"></a>
-                    <a class="carousel-item" href="#four!"><img src="https://i.imgur.com/2WCT2lg.jpg"></a>
-                    <a class="carousel-item" href="#five!"><img src="https://cdn.cnn.com/cnnnext/dam/assets/160926110921-03-disney-pics-hq1-11-super-169.jpg"></a>
-                  </div>
-
+        
+            <div id="orlando"></div>
             <div class="row container map">
                 <h1 class="header">Where Do We Go?</h1>
                 <div class="row">
@@ -128,7 +130,7 @@
 
 <h3>The Magic Kingdom Park is split into 6 themed lands.  Click below to learn more!</h3>
 <!-- Cards -->
-
+<div id="lands"></div>
 <div class="row">
         <div class="col l4 m7">
           <div class="card">

@@ -23,12 +23,6 @@
         margin-right: 60%;
     }
 
-    
-
-    .carousel {
-      padding: 0;
-      margin: 0;
-    }
 
     p {
       text-align: center;
@@ -37,10 +31,12 @@
     }
 
 nav {
-  position: fixed;
   z-index: 500;
   background-color: lightskyblue;
   color: black;
+  border-radius: 10px;
+  width: 120%;
+  margin-left: -10%;
 }
 
 h3 {
@@ -58,31 +54,19 @@ h3 {
 .card-content {
   font-size: 22px;
 }
-  
 
-/*TILT*/
-.card {
-  -webkit-transition: all 0.5s ease;
-     -moz-transition: all 0.5s ease;
-       -o-transition: all 0.5s ease;
-      -ms-transition: all 0.5s ease;
-          transition: all 0.5s ease;
-}
- 
 .card:hover {
-  -webkit-transform: rotate(-10deg);
-     -moz-transform: rotate(-10deg);
-       -o-transform: rotate(-10deg);
-      -ms-transform: rotate(-10deg);
-          transform: rotate(-10deg);
+  box-shadow: 10px 10px 11px #888787;
 }
+
 
 .btn {
+
   background-color: darkorchid;
   color: aliceblue;
-  margin-left: 17%;
+  margin-left: 100%;
   height: 50px;
-  width: 150px;
+  width: 130px;
   border-radius: 5px;
   font-size: 25px;
 }
@@ -98,6 +82,7 @@ h3 {
   background-color: white;
   text-align: center;
   font-size: 20px;
+  width: 50%;
 }
 
 .footer-copyright {
@@ -112,4 +97,48 @@ h3 {
   position:relative;
   top:50%; 
   left:50%;
+}
+
+#adultsInput {
+  margin-top: 5px;
+  width: 200px;
+  margin-left: 10%;
+}
+
+#infantsInput {
+  margin-top: 5px;
+  width: 180px;
+  margin-left: 75%;
+}
+
+#childrenInput {
+  margin-top: 5px;
+  width: 180px;
+  margin-left: 50%;
+}
+
+#nameInput {
+  width: 150px;
+}
+
+.topofpage {
+  background: -webkit-linear-gradient(left, rgba(203,96,179,1) 0%,rgba(168,0,119,1) 100%,rgba(219,54,164,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  color: black;
+  border: solid rgb(21, 2, 189);
+}
+
+h4 {
+  font-family: 'Anton', sans-serif; 
+  font-size: 50px;
+  padding-top: 30px;
+  padding-left: 40px;
+  color: black;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: aqua;
 }
