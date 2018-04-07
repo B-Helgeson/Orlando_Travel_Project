@@ -170,7 +170,7 @@ h6 {
   font-size:60px;
   margin-top: 30px;
   padding-top: 10px;
-  padding-left: 20px;
+  padding-left: 20%;
   margin-bottom: -30px;
   color: black;
   background-color: rgb(130, 177, 247);
@@ -179,18 +179,4 @@ h6 {
   font-family: 'Orbitron', sans-serif;
 
 
-}
-
-#entrance {
-  margin-left: -16%;
-}
-
-#entrance {
-  transition: filter .5s ease-in-out;
-  -webkit-filter: grayscale(0%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
-  filter: grayscale(0%); /* FF 35+ */
-}
-#entrance:hover {
-  -webkit-filter: grayscale(100%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
-  filter: grayscale(100%); /* FF 35+ */
 }
