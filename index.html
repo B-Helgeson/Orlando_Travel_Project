@@ -23,34 +23,66 @@
 </div>
  
 
+<div class="section white" id="resultsContainer">
+  <div class="row container">
+      <h1 class="header">Custom Recommendations</h1>
+      <table class="responsive-table highlight" id='results-table'>
+        <thead>
+          <tr>
+            <th>Customized Rank</th>
+            <th>Attraction Name</th>
+            <th>Height Requirement</th>
+            <th>Description</th>
+            <th>Ride Video</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+  </div>
+</div>
 
+        <!-- Results Table, Hiden Until Form Submitted  -->
+       
 
-        <!-- Parallax  -->
+        <!-- Parallax -->
         <div class="parallax-container">
-            <div class="parallax">
-                <img src="http://static1.purebreak.com.br/articles/2/51/2/@/2813-a-walt-disney-word-tem-mais-de-62-mil-opengraph_1200-1.jpg">
-            </div>
-        </div>
-        <div class="section white">
-            <div class="row container">
-                <h1 class="header">Design Your Own Magic</h1>
-                <p class="grey-text text-darken-3 lighten-3">You are about to embark
-                  on a great adventure with your traveling family!  The Magic Kingdom Park is the most popular theme park in the entire world,
-                  with over 50 attractions to see and do.  To get you started on your day at the Magic Kingdom Park, fill out the form below
-                  to get your Top 5 attractions you do not want to miss!
-                </p>
-                    <nav>
-                      <div class="row">
-                        <form class="col s12">
-                          <div class="row">
-                            <div class="input-field col s2">
-                              <input placeholder="First Name?" id="nameInput" type="text" class="validate">
+          <div class="parallax">
+              <img src="http://static1.purebreak.com.br/articles/2/51/2/@/2813-a-walt-disney-word-tem-mais-de-62-mil-opengraph_1200-1.jpg">
+          </div>
+      </div>
+      <div class="section white" id="notresultsContainer">
+          <div class="row container">
+              <h1 class="header">Design Your Own Magic</h1>
+              <p class="grey-text text-darken-3 lighten-3">You are about to embark
+                on a great adventure with your traveling family!  The Magic Kingdom Park is the most popular theme park in the entire world,
+                with over 50 attractions to see and do.  To get you started on your day at the Magic Kingdom Park, fill out the form below
+                to get your Top 5 attractions you do not want to miss!
+              </p>
+                  <nav>
+                    <div class="row">
+                      <form class="col s12">
+                        <div class="row">
+                          <div class="input-field col s2">
+                            <input placeholder="First Name?" id="nameInput" type="text" class="validate">
+                          </div>
+                          <div class="input-field col s2">
+                            <label></label>
+                            <select class="browser-default" id="adultsInput">
+                              <option value="" disabled selected>Adults in Group Ages 10+</option> 
+                              <option value="0">0</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                            </select>
                             </div>
                             <div class="input-field col s2">
                               <label></label>
-                              <select class="browser-default" id="adultsInput">
-                                <option value="" disabled selected>Adults in Group Ages 10+</option> 
-                                <option value="0">0</option>
+                              <select class="browser-default" id="childrenInput">
+                                <option value="" disabled selected>Kids in Group Ages 3-9</option>
+                                <option value="">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -60,8 +92,8 @@
                               </div>
                               <div class="input-field col s2">
                                 <label></label>
-                                <select class="browser-default" id="childrenInput">
-                                  <option value="" disabled selected>Kids in Group Ages 3-9</option>
+                                <select class="browser-default" id="infantsInput">
+                                  <option value="0" disabled selected>Kids in Group Ages 0-2</option>
                                   <option value="">0</option>
                                   <option value="1">1</option>
                                   <option value="2">2</option>
@@ -69,28 +101,19 @@
                                   <option value="4">4</option>
                                   <option value="5">5</option>
                                 </select>
-                                </div>
-                                <div class="input-field col s2">
-                                  <label></label>
-                                  <select class="browser-default" id="infantsInput">
-                                    <option value="0" disabled selected>Kids in Group Ages 0-2</option>
-                                    <option value="">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                  </select>
-                                </div>
-                                <div class="input-field col s2">
-                                <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Submit</button>
-                                </div>
                               </div>
-                            </form>
-                        </div>
-                      </nav>
-            </div>
-        </div>
+                              <div class="input-field col s2">
+                              <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Submit</button>
+                              </div>
+                            </div>
+                          </form>
+                      </div>
+                    </nav>
+           
+          </div>
+      </div>
+
+
         <div class="parallax-container">
             <div class="parallax">
                 <img src="https://blog-cdn.touringplans.com/wp-content/uploads/2014/07/USA_MainStreetUsa_Sperduto.jpg">
@@ -100,11 +123,12 @@
         <div class="row container">
             <h1 class="header">Weather</h1>
             <div class="row">
-                <div class="col s6">Florida weather can be sporadic at times. In the summer months, it will likely pour everyday in the afternoon
-                    for about 1-2 hours, then stop and be hot and muggy. Check out the weather for today here.
-                </div>
-                <div class="col s6">
-                    <div id="weather"></div>
+                <div class="col s12">
+                    <div id="weather">
+                      <p class = 'weather' id='weatherPara'>Florida weather can be sporadic at times. In the summer months, it will likely pour everyday in the afternoon
+                    for about 1-2 hours, then stop and be hot and muggy. Check out the weather for today here.</p>
+
+                    </div>
                         
                 </div>
             </div>
@@ -141,7 +165,7 @@
             <div class="card-content">
               <p>Here you enter a turn of the century mid-western town inspired by Marceline, Missouri.
                 Shopping and dining locations such as the Main Street Emporium, Uptown Jewelers, and Casey's Corner Hotdog stand are found along Main Street.
-                You can also board a Main Steet vehicle and take it up to Cinderella's Castle before entering some of the other lands.
+                You can also board a Main Street vehicle and take it up to Cinderella's Castle before entering some of the other lands.
               </p>
             </div>
             </div>
@@ -218,7 +242,7 @@
                           </div>
                           </div>
                         </div>
-        </div>
+        </div> 
       </div>
 
 
@@ -226,6 +250,7 @@
 
 
       <!-- Footer -->
+      <footer>
       <div class="footer-copyright">
         <div class="container">
         © 2018 UCF Coding Bootcamp | Anibal | Jonathan | Brandon | Tim

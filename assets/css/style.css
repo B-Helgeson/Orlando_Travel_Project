@@ -8,7 +8,16 @@
 
 /* Style Settings for Weather API */
        #weather {
-        height: 100%;
+        text-align: center;
+
+      }
+      .weather {
+        color: grey;
+        font-size: 20px;
+        line-height: 40%;
+      }
+      #weatherPara {
+        line-height: 130%;
       }
 
       /* -------------------------------------------------------------------- */
@@ -30,6 +39,7 @@
       font-size: 20px;
     }
 
+    
 nav {
   z-index: 500;
   background-color: lightskyblue;
@@ -83,11 +93,20 @@ h3 {
   text-align: center;
   font-size: 20px;
   width: 50%;
+  overflow: hidden;
 }
 
+/* Footer with copyright, white text, and blueviolet background, and sticking to the bottom with no white space. */
 .footer-copyright {
   text-align: center;
+  color: white;
   font-size: 16px;
+  padding-top: .5%;
+  padding-bottom: 5%;
+  margin-bottom: 1;
+  background-color: blueviolet;
+  position: sticky;
+  height: 12;
 }
 
 #loadResults {
@@ -141,4 +160,7 @@ a {
 
 a:hover {
   color: aqua;
+}
+#tableDiv {
+  width: 100vw;
 }
