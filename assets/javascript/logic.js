@@ -45,6 +45,13 @@ $(document).ready(function(){
     $(document).ready(function(){
       $('.carousel').carousel();
     });
+
+  // Javascript for Scroll Funtion
+  $(document).ready(function(){
+    $('.scrollspy').scrollSpy();
+  });
+
+
   // Javascript for HTML Carousel function
     $('.carousel.carousel-slider').carousel({
       fullWidth: true
