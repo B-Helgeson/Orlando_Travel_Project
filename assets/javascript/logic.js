@@ -111,11 +111,16 @@ $("#submit").on("click", function(event) {
   // Determine which attractions apply to this guest
   determineRideList();
   // Show/Hide the container which holdes the results table
-  $('#resultsContainer').toggle();
+  $('#resultsContainer').show();
+  $('#inputContainer').hide();
   // Load the table containing the custom ride list
 });
 //#endregion
 
+$("#close").on("click", function(event) {
+  $('#resultsContainer').toggle();
+  $('#inputContainer').toggle();
+})
 //#region Functions for Custom Ride List
 
 // Send Guest Data to FireBase
