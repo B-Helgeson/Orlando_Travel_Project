@@ -10,9 +10,11 @@
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Kirang+Haerang" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
+  <!-- Top NavBar -->
   <div class="topofpage">
     <div class="row">
       <div class="col s12 m6 l3">
@@ -39,36 +41,16 @@
     <br>
   </div>
 
- <!-- Results Table, Hiden Until Form Submitted  -->
-  <div class="section white" id="resultsContainer">
-    <div class="row container">
-      <h1 class="header">Custom Recommendations</h1>
-      <table class="responsive-table highlight" id='results-table'>
-        <thead>
-          <tr>
-            <th>Customized Rank</th>
-            <th>Attraction Name</th>
-            <th>Height Requirement</th>
-            <th>Description</th>
-            <th>Ride Video</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </div>
-  </div>
 
- 
-
-
-  <!-- Parallax -->
+  <!-- Parallax Image-->
   <div class="parallax-container">
     <div class="parallax">
       <img src="http://static1.purebreak.com.br/articles/2/51/2/@/2813-a-walt-disney-word-tem-mais-de-62-mil-opengraph_1200-1.jpg">
     </div>
   </div>
-  <div class="section white" id="notresultsContainer">
+
+  <!-- Design Your Own Magic / User Input Section -->
+  <div class="section white" id="inputContainer">
     <div class="row container">
       <h1 class="header">Design Your Own Magic</h1>
       <p class="grey-text text-darken-3 lighten-3">You are about to embark on a great adventure with your traveling family! The Magic Kingdom Park is the most popular
@@ -125,10 +107,29 @@
           </form>
         </div>
       </nav>
-
     </div>
   </div>
 
+   <!-- Results Table, Hiden Until Form Submitted  -->
+   <div class="section white" id="resultsContainer">
+      <div class="row container">
+        <h1 class="header">Custom Recommendations</h1>
+        <a class="btn-floating btn-large waves-effect waves-light red" id="close"><i class="material-icons">close</i></a>
+        <table class="responsive-table highlight" id='results-table'>
+          <thead>
+            <tr>
+              <th>Customized Rank</th>
+              <th>Attraction Name</th>
+              <th>Height Requirement</th>
+              <th>Description</th>
+              <th>Ride Video</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
   <div class="parallax-container">
     <div class="parallax">
