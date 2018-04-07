@@ -51,6 +51,11 @@ $(document).ready(function(){
     $('.scrollspy').scrollSpy();
   });
 
+  $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+     
+
 
   // Javascript for HTML Carousel function
     $('.carousel.carousel-slider').carousel({
